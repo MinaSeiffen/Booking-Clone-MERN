@@ -3,11 +3,13 @@ import { Link } from "react-router-dom"
 import * as apiClient from "../api-client"
 import { BsBuilding, BsMap } from "react-icons/bs"
 import { BiHotel, BiMoney, BiStar } from "react-icons/bi"
+import { useAppContext } from "../Context/AppContext"
 
 const MyHotels = () => {
+    const {showToast} = useAppContext()
     const {data:hotelData} = useQuery("fetchMyHotels", apiClient.getMyHotels , {
-        onError: (e)=>{
-            console.log(e)
+        onError: ()=>{
+            showToast({message:"Error fetching your hotels" , type:"ERROR"})
         }
     } )
 
