@@ -34,7 +34,7 @@ const ImagesSection = () => {
 
             <input type="file" multiple accept="image/*" className="w-full text-gray-700 font-normal" {...register("imageURLs" ,{
                 validate: (imageFiles)=>{
-                    const totalLength = imageFiles.length + (excistingImages.length || 0);
+                    const totalLength = imageFiles?.length + (excistingImages?.length || 0);
                     if (totalLength === 0) {
                         return "Please Upload at least one image"
                     } 
