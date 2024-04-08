@@ -80,7 +80,7 @@ const SearchBar = () => {
           minDate={minDate}
           maxDate={maxDate}
           placeholderText="Check-in Date"
-          className="w-full px-2 bg-white focus:outline-none py-2"
+          className="w-full px-3 bg-white focus:outline-none py-2"
           wrapperClassName="min-w-full"
         />
       </div>
@@ -94,15 +94,15 @@ const SearchBar = () => {
           minDate={minDate}
           maxDate={maxDate}
           placeholderText="Check-in Date"
-          className="w-full px-2 bg-white focus:outline-none py-2"
+          className="w-full px-3 bg-white focus:outline-none py-2"
           wrapperClassName="min-w-full"
         />
       </div>
-      <div className="felx gap-1 justify-center items-center">
-        <button className="w-[66.7%] bg-blue-600 text-white h-full p-2 font-bold text-lg hover:bg-blue-500 rounded-lg">
+      <div className="felx grid grid-cols-2 ml-9 gap-2 justify-center items-center">
+        <button className="w-fit bg-blue-600 text-white h-full p-2 font-bold text-lg hover:bg-blue-500 rounded-lg">
           Search
         </button>
-        <button className="w-[33%] bg-red-600 text-white h-full p-2 font-bold text-lg rounded-lg hover:bg-red-500">
+        <button className="w-fit bg-red-600 text-white h-full p-2 font-bold text-lg rounded-lg hover:bg-red-500">
           Clear
         </button>
       </div>

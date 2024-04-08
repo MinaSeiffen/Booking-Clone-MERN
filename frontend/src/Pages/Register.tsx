@@ -39,7 +39,9 @@ const Register = () => {
   });
 
   return (
-    <form className="flex flex-col gap-5 container" onSubmit={onSubmit}>
+    <div className="container w-[100vw]">
+
+    <form className="flex flex-col gap-5" onSubmit={onSubmit}>
       <h2 className="text-3xl font-bold">Create an Account</h2>
       <div className="flex flex-col md:flex-row gap-10">
         <label className="text-gray-700 text-sm font-bold flex-1">
@@ -47,7 +49,7 @@ const Register = () => {
           <input
             className="border rounded w-full py-1 px-2 font-normal"
             {...register("firstName", { required: "First Name is required" })}
-          />
+            />
           {errors.firstName && ( <span className="text-red-600"> {errors.firstName.message} </span> )}
         </label>
         <label className="text-gray-700 text-sm font-bold flex-1">
@@ -55,7 +57,7 @@ const Register = () => {
           <input
             className="border rounded w-full py-1 px-2 font-normal"
             {...register("lastName", { required: "Last Name is required" })}
-          />
+            />
           {errors.lastName && ( <span className="text-red-600"> {errors.lastName.message} </span> )}
         </label>
       </div>
@@ -65,7 +67,7 @@ const Register = () => {
           type="email"
           className="border rounded w-full py-1 px-2 font-normal"
           {...register("email", { required: "email is required" })}
-        />
+          />
         {errors.email && ( <span className="text-red-600"> {errors.email.message} </span> )}
       </label>
       <label className="text-gray-700 text-sm font-bold flex-1">
@@ -80,7 +82,7 @@ const Register = () => {
               message: "password must be at least 6 charaters",
             },
           })}
-        />
+          />
         {errors.password && ( <span className="text-red-600"> {errors.password.message} </span> )}
       </label>
       <label className="text-gray-700 text-sm font-bold flex-1">
@@ -97,7 +99,7 @@ const Register = () => {
               }
             },
           })}
-        />
+          />
         {errors.confirmPassword && ( <span className="text-red-600"> {errors.confirmPassword.message} </span> )}
       </label>
       <span className="flex justify-between">
@@ -107,11 +109,12 @@ const Register = () => {
         <button
           type="submit"
           className="bg-blue-600 text-white font-bold p-2 hover:bg-blue-500 text-xl"
-        >
+          >
           Create Account
         </button>
       </span>
     </form>
+          </div>
   );
 };
 

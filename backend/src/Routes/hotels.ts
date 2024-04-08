@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import hotelModel from "../Models/hotels";
 import { HotelSearchType } from "../Shared/types";
+import { param, validationResult } from "express-validator";
 
 const router = express.Router();
 
@@ -27,7 +28,11 @@ router.get("/search", async (req: Request, res: Response) => {
     );
     const skip = (pageNumber - 1) * pageSize;
 
-    const hotels = await hotelModel.find(query).sort(sortOptions).skip(skip).limit(pageSize);
+    const hotels = await hotelModel
+      .find(query)
+      .sort(sortOptions)
+      .skip(skip)
+      .limit(pageSize);
 
     const total = await hotelModel.countDocuments(query);
 
@@ -45,6 +50,26 @@ router.get("/search", async (req: Request, res: Response) => {
     res.status(500).json({ message: "Failed to search" });
   }
 });
+
+router.get(
+  "/:id",
+  [param("id").notEmpty().withMessage("Hotel ID not Found")],
+  async (req: Request, res: Response) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(404).json({ error: errors.array() });
+    }
+    const id = req.params.id;
+
+    try {
+      const hotel = await hotelModel.findById(id);
+      res.status(200).json(hotel)
+    } catch (error) {
+      console.log(error)
+      res.status(500).json({message: "Failed to find hotel"})
+    }
+  }
+);
 
 const constructSearchQuery = (queryParams: any) => {
   let constructedQuery: any = {};
