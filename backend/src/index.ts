@@ -8,6 +8,7 @@ import userRoutes from "./Routes/users";
 import authRoutes from "./Routes/auth";
 import myhotelRoutes from "./Routes/my-hotels"
 import hotelsRoutes from "./Routes/hotels"
+import mybookingsRoutes from "./Routes/my-bookings"
 import cookieParser from "cookie-parser";
 
 cloudinary.config({
@@ -42,6 +43,7 @@ app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myhotelRoutes);
+app.use("/api/my-bookings", mybookingsRoutes);
 app.use("/api/hotels", hotelsRoutes );
 
 app.use("*", (req:Request, res:Response) => {

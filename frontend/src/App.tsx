@@ -9,6 +9,7 @@ import EditHotel from "./Pages/EditHotel"
 import Search from "./Pages/Search"
 import Details from "./Pages/Details"
 import Booking from "./Pages/Booking"
+import MyBookings from "./Pages/MyBookings"
 
 
 function App() {
@@ -44,6 +45,11 @@ function App() {
               <Route path="/my-hotels" element={
                 <Layout>
                   <MyHotels/>
+                </Layout>
+              }/>
+              <Route path="/my-bookings" element={
+                <Layout>
+                  <MyBookings/>
                 </Layout>
               }/>
               <Route path="/edit-hotel/:hotelId" element={

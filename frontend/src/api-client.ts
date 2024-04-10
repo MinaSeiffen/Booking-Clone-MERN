@@ -210,3 +210,15 @@ export const createRoomBooking = async (formData: BookingFormData)=>{
         throw new Error("There is something went wrong in Booking")
     }
 }
+
+export const getMyBookings = async(): Promise<HotelType[]>=>{
+    const response = await fetch(`${API_BASE_URL}/api/my-bookings` , {
+        credentials: "include",
+    })
+
+    if (!response.ok) {
+        throw new Error("There is something went wrong in geting your bookings")
+    }
+
+    return response.json()
+}
