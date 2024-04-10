@@ -56,6 +56,15 @@ router.get("/search", async (req: Request, res: Response) => {
   }
 });
 
+router.get("/" , async(req:Request , res:Response)=>{
+  try {
+    const hotels = await hotelModel.find().sort("-lastUpdated")
+    res.json(hotels)
+  } catch (error) {
+    res.status(500).json({ message: "Failed to get hotels" });
+  }
+})
+
 router.get(
   "/:id",
   [param("id").notEmpty().withMessage("Hotel ID not Found")],

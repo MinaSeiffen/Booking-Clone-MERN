@@ -10,6 +10,7 @@ import Search from "./Pages/Search"
 import Details from "./Pages/Details"
 import Booking from "./Pages/Booking"
 import MyBookings from "./Pages/MyBookings"
+import Home from "./Pages/Home"
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout>
-            <p>home page</p>
+            <Home/>
           </Layout>}/> 
           <Route path="/search" element={<Layout>
             <Search/>
