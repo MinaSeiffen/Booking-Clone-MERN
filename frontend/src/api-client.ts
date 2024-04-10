@@ -1,7 +1,20 @@
-import { HotelSearchType, HotelType } from './../../backend/src/Shared/types';
+import { HotelSearchType, HotelType, PaymentIntentResponse, UserType } from './../../backend/src/Shared/types';
+import { BookingFormData } from './Forms/BookingForm/BookingForm';
 import { RegisterForm } from "./Pages/Register";
 import { SignInData } from "./Pages/SignIn";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ""
+
+export const getCurrentUser = async (): Promise<UserType>=>{
+    const response = await fetch(`${API_BASE_URL}/api/users/me` , {
+        credentials: "include"
+    })
+
+    if (!response.ok) {
+        throw new Error("Failed to get current user")
+    }
+
+    return response.json()
+}
 
 export const register = async (formData : RegisterForm)=>{
     const response = await fetch(`${API_BASE_URL}/api/users/register`, {
@@ -158,4 +171,42 @@ export const getAnyHotelById = async(hotelId: string): Promise<HotelType> =>{
         throw new Error("Can not find that Hotel")
     }
     return response.json()
+}
+
+export const createPaymentIntent = async (
+    hotelId: string,
+    numberOfNights: string
+  ): Promise<PaymentIntentResponse> => {
+    const response = await fetch(
+      `${API_BASE_URL}/api/hotels/${hotelId}/bookings/payment-intent`,
+      {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify({ numberOfNights }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+      }
+    );
+  
+    if (!response.ok) {
+      throw new Error("Error fetching payment intent");
+    }
+  
+    return response.json();
+  };
+
+export const createRoomBooking = async (formData: BookingFormData)=>{
+    const response = await fetch(`${API_BASE_URL}/api/hotels/${formData.hotelId}/bookings`, {
+        method: "POST",
+        credentials: "include",
+        headers:{
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData)
+    })
+
+    if (!response.ok) {
+        throw new Error("There is something went wrong in Booking")
+    }
 }

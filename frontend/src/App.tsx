@@ -8,6 +8,7 @@ import MyHotels from "./Pages/MyHotels"
 import EditHotel from "./Pages/EditHotel"
 import Search from "./Pages/Search"
 import Details from "./Pages/Details"
+import Booking from "./Pages/Booking"
 
 
 function App() {
@@ -30,6 +31,11 @@ function App() {
           <Route path="/signin" element={<Layout><SignIn/></Layout>}/> 
           {isLoggedIn && (
             <>
+            <Route path="/hotel/:hotelId/booking" element={
+                <Layout>
+                  <Booking/>
+                </Layout>
+              }/>
               <Route path="/add-hotel" element={
                 <Layout>
                   <AddHotel/>
