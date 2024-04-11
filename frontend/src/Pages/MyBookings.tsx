@@ -8,11 +8,11 @@ const MyBookings = () => {
         return <span>No Bookings Found</span>
     }
   return (
-    <div className="container space-y-5">
+    <div className="container w-[100vw] space-y-5">
         <h1 className="text-3xl font-bold">My Bookings</h1>
         {hotels?.map((hotel) => (
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] border border-slate-300 rounded-lg p-8 gap-5">
-                <div className="lg:w-full lg:h-[250px]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] border border-slate-300 rounded-lg p-8 gap-10">
+                <div className="lg:w-full lg:h-[300px]">
                     <img src={hotel.imageUrls[0]} className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="flex flex-col gap-4 overflow-y-auto max-h-[300px]">
