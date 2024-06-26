@@ -8,7 +8,7 @@ const MyBookings = () => {
         return <span>No Bookings Found</span>
     }
   return (
-    <div className="container w-[100vw] space-y-5">
+    <div className="container w-[90vw] space-y-5">
         <h1 className="text-3xl font-bold">My Bookings</h1>
         {hotels?.map((hotel) => (
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] border border-slate-300 rounded-lg p-8 gap-10">
