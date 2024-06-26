@@ -65,7 +65,7 @@ const Search = () => {
     };
   
     return (
-    <div className="container w-[100vw] gap-5 grid grid-cols-1 lg:grid-cols-[250px_1fr]">
+    <div className="container w-[90vw] gap-5 grid grid-cols-1 lg:grid-cols-[250px_1fr]">
       <div className="rounded-lg border border-slate-300 p-5 h-fit sticky top-10">
         <div className="space-y-5">
           <h3 className="text-lg font-semibold border-b border-slate-300 pb-5">Filter By</h3>
