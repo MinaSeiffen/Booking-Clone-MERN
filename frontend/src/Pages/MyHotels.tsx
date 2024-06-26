@@ -18,7 +18,7 @@ const MyHotels = () => {
     }
 
   return (
-    <div className="container w-[100vw] space-y-5">
+    <div className="container w-[90vw] space-y-5">
         <span className="flex justify-between">
             <h1 className="text-3xl font-bold">My Hotels</h1>
             <Link to={"/add-hotel"} className="bg-blue-600 text-white font-bold text-xl p-2 hover:bg-blue-500">
